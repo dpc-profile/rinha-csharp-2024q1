@@ -1,0 +1,39 @@
+@prod = http://localhost:9999
+@desenv = http://localhost:5222
+
+#==========================================================================
+
+
+@id = 3
+###
+GET {{desenv}}/clientes/{{id}}/extrato
+
+###
+POST {{desenv}}/clientes/{{id}}/transacoes
+Content-Type: application/json
+
+{
+    "valor": 1000,
+    "tipo" : "c",
+    "descricao" : "descricao"
+}
+
+###
+POST {{desenv}}/clientes/{{id}}/transacoes
+Content-Type: application/json
+
+{
+    "valor": 1000,
+    "tipo" : "d",
+    "descricao" : "descricao"
+}
+
+###
+POST {{desenv}}/clientes/{{id}}/transacoes
+Content-Type: application/json
+
+{
+    "valor": 1000,
+    "tipo" : "a",
+    "descricao" : "descricao"
+}
