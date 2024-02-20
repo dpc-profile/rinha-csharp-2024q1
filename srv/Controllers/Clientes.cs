@@ -3,7 +3,7 @@ using RinhaBachend2024q1.Model;
 
 namespace RinhaBachend2024q1.Controllers;
 
-
+[ApiController]
 [Route("/clientes")]
 public class Clientes : ControllerBase
 {
@@ -24,10 +24,8 @@ public class Clientes : ControllerBase
     [HttpPost("{id}/transacoes")]
     public async Task<IActionResult> FazerTransacao(int id, [FromBody] TransacaoModel transacao)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+        // if (!ModelState.IsValid)
+        //     return BadRequest(ModelState);
 
         _logger.LogInformation("Propriedades e valores da transação: {TransacaoModel}", transacao);
         return Ok($"Transação para id {id} recebida");
